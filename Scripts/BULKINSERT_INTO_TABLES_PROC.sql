@@ -1,3 +1,8 @@
+
+CREATE OR ALTER PROCEDURE Bronze.load_bronze AS 
+
+BEGIN
+
 --First Example of BULK INSERT
 TRUNCATE TABLE bronze.crm_cust_info;
 
@@ -8,15 +13,6 @@ WITH (
 	 FIELDTERMINATOR = ',',
 	 TABLOCK 
 );
-
-
-SELECT 
-COUNT(*) 
-FROM bronze.crm_cust_info
-
-SELECT 
-*
-FROM bronze.crm_cust_info
 
 --Using example to create my own scripts for other tables
 
@@ -70,3 +66,5 @@ WITH (
 	FIELDTERMINATOR = ',',
 	TABLOCK
 );
+
+END 
