@@ -1,5 +1,6 @@
 USE DataWareHouse
-
+IF OBJECT_ID ('Bronze.crm_cust_info', 'U') IS NOT NULL 
+	DROP TABLE Bronze.crm_cust_info
 CREATE TABLE Bronze.crm_cust_info ( 
 cst_id INT, 
 cst_key NVARCHAR(50),
