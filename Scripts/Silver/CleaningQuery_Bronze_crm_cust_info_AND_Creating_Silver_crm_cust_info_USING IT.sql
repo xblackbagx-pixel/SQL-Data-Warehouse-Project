@@ -1,3 +1,13 @@
+USE DataWarehouse
+INSERT INTO Silver.crm_cust_info (
+	cst_id,
+	cst_key,
+	cst_firstname,
+	cst_lastname,
+	cst_marital_status,
+	cst_gndr,
+	cst_create_date
+)
 SELECT 
 	cst_id, 
 	cst_key,
@@ -15,7 +25,7 @@ SELECT
 FROM ( 
 SELECT 
 *,
-ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) AS Flag 
+ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) AS Flag_last
 FROM bronze.crm_cust_info
 WHERE cst_id IS NOT NULL 
 )t WHERE flag_last = 1
